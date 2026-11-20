@@ -73,12 +73,12 @@
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 2px #000000;
       filter: drop-shadow(3px 3px 0 #000000) saturate(1);
-      animation: name-flash 1.6s steps(1, end) infinite;
+      animation: name-fade 1.6s ease-in-out infinite alternate;
     }
-    /* Name flashes between dull green and grey */
-    @keyframes name-flash {
-      0%   { filter: drop-shadow(3px 3px 0 #000000) saturate(1); }
-      50%  { filter: drop-shadow(3px 3px 0 #000000) saturate(0); }
+    /* Name fades smoothly between dull green and grey */
+    @keyframes name-fade {
+      from { filter: drop-shadow(3px 3px 0 #000000) saturate(1); }
+      to   { filter: drop-shadow(3px 3px 0 #000000) saturate(0); }
     }
     @media (prefers-reduced-motion: reduce) {
       h1 { animation: none; }
