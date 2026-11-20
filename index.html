@@ -23,7 +23,7 @@
     }
 
     .hello {
-      font-size: 48px;
+      font-size: 40px;
       font-weight: bold;
       margin: 0;
       line-height: 1.1;
@@ -63,13 +63,16 @@
     }
 
     .beat {
-      font-size: 22px;
+      font-size: 21px;
       font-style: italic;
-      margin: 20px 0 32px;
+      margin: 16px 0 48px;
     }
 
     /* Row of section links across the top */
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       border-bottom: 3px solid #000000;
       background: #b5cfe2;
       padding: 12px 16px;
@@ -127,6 +130,9 @@
       nav {
         position: relative;
       }
+      section {
+        scroll-margin-top: 16px;
+      }
       .dropdown {
         position: static;
       }
@@ -143,29 +149,29 @@
 
     .globe {
       display: block;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 32px;
+      width: 80px;
+      height: 80px;
+      margin: 8px auto 0;
       image-rendering: pixelated;
       image-rendering: crisp-edges;
     }
 
     .twitter {
-      margin: 0 0 24px;
+      margin: 16px 0 0;
     }
     .twitter a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       text-decoration: none;
     }
     .twitter svg {
       display: block;
-      margin: 0 auto;
     }
     .twitter-word {
-      display: block;
       font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
       font-weight: bold;
-      font-size: 28px;
+      font-size: 20px;
       color: #33ccff;
       -webkit-text-stroke: 1px #000000;
       letter-spacing: 0.02em;
@@ -174,18 +180,13 @@
       transform: rotate(-8deg);
     }
 
-    .flower {
-      font-size: 26px;
-      margin: 8px 0 40px;
-    }
-
     section {
-      margin: 0 0 48px;
-      scroll-margin-top: 16px;
+      margin: 0 0 56px;
+      scroll-margin-top: 72px;
     }
     h2 {
-      font-size: 32px;
-      margin: 0 0 16px;
+      font-size: 28px;
+      margin: 0 0 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -199,7 +200,7 @@
       line-height: 1.55;
       margin: 0 0 12px;
     }
-    #about p:not(.back) {
+    #about p {
       text-align: left;
     }
     .placeholder {
@@ -224,12 +225,12 @@
 
     .clips {
       list-style: none;
-      margin: 0 0 12px;
+      margin: 0;
       padding: 0;
     }
     .clips li {
-      margin: 0 0 20px;
-      font-size: 19px;
+      margin: 0 0 18px;
+      font-size: 18px;
       line-height: 1.4;
     }
     .clip-meta {
@@ -238,13 +239,10 @@
       font-style: italic;
       margin-top: 2px;
     }
-    .back {
-      font-size: 16px;
-    }
 
     footer {
-      font-size: 15px;
-      padding: 24px 16px 32px;
+      font-size: 14px;
+      padding: 8px 16px 32px;
     }
   </style>
 </head>
@@ -274,39 +272,15 @@
     <h1>Will Hofmann</h1>
     <p class="beat">Reporting fellow covering politics and campaigns</p>
 
-    <canvas id="globe" class="globe" width="40" height="40" aria-hidden="true"></canvas>
-
-    <p class="twitter">
-      <a href="https://x.com/will_hofmann" aria-label="Twitter">
-        <svg viewBox="0 0 64 64" width="72" height="72" role="img" aria-hidden="true">
-          <g stroke="#000000" stroke-width="2" stroke-linejoin="round">
-            <polygon points="16,34 2,24 7,40" fill="#33ccff"/>
-            <ellipse cx="29" cy="38" rx="17" ry="13" fill="#33ccff"/>
-            <polygon points="50,23 61,25 50,29" fill="#ffcc00"/>
-            <circle cx="43" cy="25" r="9" fill="#33ccff"/>
-            <path d="M18 34 Q28 26 37 36 Q28 44 18 34 Z" fill="#99e6ff"/>
-            <line x1="26" y1="50" x2="24" y2="58"/>
-            <line x1="33" y1="50" x2="35" y2="58"/>
-          </g>
-          <circle cx="45" cy="23" r="2.4" fill="#ffffff" stroke="#000000" stroke-width="1"/>
-          <circle cx="45.6" cy="23" r="1.1" fill="#000000"/>
-        </svg>
-        <span class="twitter-word">twitter</span>
-      </a>
-    </p>
-
-    <p class="flower" aria-hidden="true">✿</p>
-
     <section id="about">
-      <h2><svg class="icon" viewBox="0 0 12 12" width="36" height="36" shape-rendering="crispEdges" aria-hidden="true"><rect x="4" y="0" width="4" height="1" fill="#000000"/><rect x="2" y="1" width="2" height="1" fill="#000000"/><rect x="4" y="1" width="4" height="1" fill="#ffd84a"/><rect x="8" y="1" width="2" height="1" fill="#000000"/><rect x="1" y="2" width="1" height="1" fill="#000000"/><rect x="2" y="2" width="8" height="1" fill="#ffd84a"/><rect x="10" y="2" width="1" height="1" fill="#000000"/><rect x="1" y="3" width="1" height="1" fill="#000000"/><rect x="2" y="3" width="2" height="1" fill="#ffd84a"/><rect x="4" y="3" width="1" height="1" fill="#000000"/><rect x="5" y="3" width="2" height="1" fill="#ffd84a"/><rect x="7" y="3" width="1" height="1" fill="#000000"/><rect x="8" y="3" width="2" height="1" fill="#ffd84a"/><rect x="10" y="3" width="1" height="1" fill="#000000"/><rect x="0" y="4" width="1" height="1" fill="#000000"/><rect x="1" y="4" width="3" height="1" fill="#ffd84a"/><rect x="4" y="4" width="1" height="1" fill="#000000"/><rect x="5" y="4" width="2" height="1" fill="#ffd84a"/><rect x="7" y="4" width="1" height="1" fill="#000000"/><rect x="8" y="4" width="3" height="1" fill="#ffd84a"/><rect x="11" y="4" width="1" height="1" fill="#000000"/><rect x="0" y="5" width="1" height="1" fill="#000000"/><rect x="1" y="5" width="10" height="1" fill="#ffd84a"/><rect x="11" y="5" width="1" height="1" fill="#000000"/><rect x="0" y="6" width="1" height="1" fill="#000000"/><rect x="1" y="6" width="10" height="1" fill="#ffd84a"/><rect x="11" y="6" width="1" height="1" fill="#000000"/><rect x="0" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="7" width="2" height="1" fill="#ffd84a"/><rect x="3" y="7" width="1" height="1" fill="#000000"/><rect x="4" y="7" width="4" height="1" fill="#ffd84a"/><rect x="8" y="7" width="1" height="1" fill="#000000"/><rect x="9" y="7" width="2" height="1" fill="#ffd84a"/><rect x="11" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="8" width="1" height="1" fill="#000000"/><rect x="2" y="8" width="2" height="1" fill="#ffd84a"/><rect x="4" y="8" width="4" height="1" fill="#000000"/><rect x="8" y="8" width="2" height="1" fill="#ffd84a"/><rect x="10" y="8" width="1" height="1" fill="#000000"/><rect x="1" y="9" width="1" height="1" fill="#000000"/><rect x="2" y="9" width="8" height="1" fill="#ffd84a"/><rect x="10" y="9" width="1" height="1" fill="#000000"/><rect x="2" y="10" width="2" height="1" fill="#000000"/><rect x="4" y="10" width="4" height="1" fill="#ffd84a"/><rect x="8" y="10" width="2" height="1" fill="#000000"/><rect x="4" y="11" width="4" height="1" fill="#000000"/></svg><span>about</span></h2>
+      <h2><svg class="icon" viewBox="0 0 12 12" width="27" height="27" shape-rendering="crispEdges" aria-hidden="true"><rect x="4" y="0" width="4" height="1" fill="#000000"/><rect x="2" y="1" width="2" height="1" fill="#000000"/><rect x="4" y="1" width="4" height="1" fill="#ffd84a"/><rect x="8" y="1" width="2" height="1" fill="#000000"/><rect x="1" y="2" width="1" height="1" fill="#000000"/><rect x="2" y="2" width="8" height="1" fill="#ffd84a"/><rect x="10" y="2" width="1" height="1" fill="#000000"/><rect x="1" y="3" width="1" height="1" fill="#000000"/><rect x="2" y="3" width="2" height="1" fill="#ffd84a"/><rect x="4" y="3" width="1" height="1" fill="#000000"/><rect x="5" y="3" width="2" height="1" fill="#ffd84a"/><rect x="7" y="3" width="1" height="1" fill="#000000"/><rect x="8" y="3" width="2" height="1" fill="#ffd84a"/><rect x="10" y="3" width="1" height="1" fill="#000000"/><rect x="0" y="4" width="1" height="1" fill="#000000"/><rect x="1" y="4" width="3" height="1" fill="#ffd84a"/><rect x="4" y="4" width="1" height="1" fill="#000000"/><rect x="5" y="4" width="2" height="1" fill="#ffd84a"/><rect x="7" y="4" width="1" height="1" fill="#000000"/><rect x="8" y="4" width="3" height="1" fill="#ffd84a"/><rect x="11" y="4" width="1" height="1" fill="#000000"/><rect x="0" y="5" width="1" height="1" fill="#000000"/><rect x="1" y="5" width="10" height="1" fill="#ffd84a"/><rect x="11" y="5" width="1" height="1" fill="#000000"/><rect x="0" y="6" width="1" height="1" fill="#000000"/><rect x="1" y="6" width="10" height="1" fill="#ffd84a"/><rect x="11" y="6" width="1" height="1" fill="#000000"/><rect x="0" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="7" width="2" height="1" fill="#ffd84a"/><rect x="3" y="7" width="1" height="1" fill="#000000"/><rect x="4" y="7" width="4" height="1" fill="#ffd84a"/><rect x="8" y="7" width="1" height="1" fill="#000000"/><rect x="9" y="7" width="2" height="1" fill="#ffd84a"/><rect x="11" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="8" width="1" height="1" fill="#000000"/><rect x="2" y="8" width="2" height="1" fill="#ffd84a"/><rect x="4" y="8" width="4" height="1" fill="#000000"/><rect x="8" y="8" width="2" height="1" fill="#ffd84a"/><rect x="10" y="8" width="1" height="1" fill="#000000"/><rect x="1" y="9" width="1" height="1" fill="#000000"/><rect x="2" y="9" width="8" height="1" fill="#ffd84a"/><rect x="10" y="9" width="1" height="1" fill="#000000"/><rect x="2" y="10" width="2" height="1" fill="#000000"/><rect x="4" y="10" width="4" height="1" fill="#ffd84a"/><rect x="8" y="10" width="2" height="1" fill="#000000"/><rect x="4" y="11" width="4" height="1" fill="#000000"/></svg><span>about</span></h2>
       <img class="photo" src="images/will-in-the-rain.jpg" width="1600" height="1038" loading="lazy"
            alt="Will Hofmann in a red rain jacket and press badge, holding a notebook and checking a phone in the rain">
       <p>I previously worked at the Asheville Citizen Times, where I covered Western North Carolina’s recovery from Hurricane Helene and regional growth and development. I graduated from Appalachian State University, where I covered politics, infrastructure and enterprise projects as an editor for The Appalachian.</p>
-      <p class="back"><a href="#top">back to top</a></p>
     </section>
 
     <section id="clips">
-      <h2><svg class="icon" viewBox="0 0 14 12" width="42" height="36" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="12" height="1" fill="#000000"/><rect x="0" y="1" width="1" height="1" fill="#000000"/><rect x="1" y="1" width="10" height="1" fill="#ffffff"/><rect x="11" y="1" width="1" height="1" fill="#000000"/><rect x="0" y="2" width="1" height="1" fill="#000000"/><rect x="1" y="2" width="1" height="1" fill="#ffffff"/><rect x="2" y="2" width="8" height="1" fill="#000000"/><rect x="10" y="2" width="1" height="1" fill="#ffffff"/><rect x="11" y="2" width="2" height="1" fill="#000000"/><rect x="0" y="3" width="1" height="1" fill="#000000"/><rect x="1" y="3" width="10" height="1" fill="#ffffff"/><rect x="11" y="3" width="1" height="1" fill="#000000"/><rect x="12" y="3" width="1" height="1" fill="#ffffff"/><rect x="13" y="3" width="1" height="1" fill="#000000"/><rect x="0" y="4" width="1" height="1" fill="#000000"/><rect x="1" y="4" width="1" height="1" fill="#ffffff"/><rect x="2" y="4" width="3" height="1" fill="#000000"/><rect x="5" y="4" width="1" height="1" fill="#ffffff"/><rect x="6" y="4" width="4" height="1" fill="#000000"/><rect x="10" y="4" width="1" height="1" fill="#ffffff"/><rect x="11" y="4" width="1" height="1" fill="#000000"/><rect x="12" y="4" width="1" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#000000"/><rect x="0" y="5" width="1" height="1" fill="#000000"/><rect x="1" y="5" width="1" height="1" fill="#ffffff"/><rect x="2" y="5" width="3" height="1" fill="#000000"/><rect x="5" y="5" width="6" height="1" fill="#ffffff"/><rect x="11" y="5" width="1" height="1" fill="#000000"/><rect x="12" y="5" width="1" height="1" fill="#ffffff"/><rect x="13" y="5" width="1" height="1" fill="#000000"/><rect x="0" y="6" width="1" height="1" fill="#000000"/><rect x="1" y="6" width="1" height="1" fill="#ffffff"/><rect x="2" y="6" width="3" height="1" fill="#000000"/><rect x="5" y="6" width="1" height="1" fill="#ffffff"/><rect x="6" y="6" width="4" height="1" fill="#000000"/><rect x="10" y="6" width="1" height="1" fill="#ffffff"/><rect x="11" y="6" width="1" height="1" fill="#000000"/><rect x="12" y="6" width="1" height="1" fill="#ffffff"/><rect x="13" y="6" width="1" height="1" fill="#000000"/><rect x="0" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="7" width="10" height="1" fill="#ffffff"/><rect x="11" y="7" width="1" height="1" fill="#000000"/><rect x="12" y="7" width="1" height="1" fill="#ffffff"/><rect x="13" y="7" width="1" height="1" fill="#000000"/><rect x="0" y="8" width="1" height="1" fill="#000000"/><rect x="1" y="8" width="1" height="1" fill="#ffffff"/><rect x="2" y="8" width="8" height="1" fill="#000000"/><rect x="10" y="8" width="1" height="1" fill="#ffffff"/><rect x="11" y="8" width="1" height="1" fill="#000000"/><rect x="12" y="8" width="1" height="1" fill="#ffffff"/><rect x="13" y="8" width="1" height="1" fill="#000000"/><rect x="0" y="9" width="1" height="1" fill="#000000"/><rect x="1" y="9" width="10" height="1" fill="#ffffff"/><rect x="11" y="9" width="1" height="1" fill="#000000"/><rect x="12" y="9" width="1" height="1" fill="#ffffff"/><rect x="13" y="9" width="1" height="1" fill="#000000"/><rect x="0" y="10" width="12" height="1" fill="#000000"/><rect x="12" y="10" width="1" height="1" fill="#ffffff"/><rect x="13" y="10" width="1" height="1" fill="#000000"/><rect x="1" y="11" width="12" height="1" fill="#000000"/></svg><span>clips</span></h2>
+      <h2><svg class="icon" viewBox="0 0 14 12" width="32" height="27" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="12" height="1" fill="#000000"/><rect x="0" y="1" width="1" height="1" fill="#000000"/><rect x="1" y="1" width="10" height="1" fill="#ffffff"/><rect x="11" y="1" width="1" height="1" fill="#000000"/><rect x="0" y="2" width="1" height="1" fill="#000000"/><rect x="1" y="2" width="1" height="1" fill="#ffffff"/><rect x="2" y="2" width="8" height="1" fill="#000000"/><rect x="10" y="2" width="1" height="1" fill="#ffffff"/><rect x="11" y="2" width="2" height="1" fill="#000000"/><rect x="0" y="3" width="1" height="1" fill="#000000"/><rect x="1" y="3" width="10" height="1" fill="#ffffff"/><rect x="11" y="3" width="1" height="1" fill="#000000"/><rect x="12" y="3" width="1" height="1" fill="#ffffff"/><rect x="13" y="3" width="1" height="1" fill="#000000"/><rect x="0" y="4" width="1" height="1" fill="#000000"/><rect x="1" y="4" width="1" height="1" fill="#ffffff"/><rect x="2" y="4" width="3" height="1" fill="#000000"/><rect x="5" y="4" width="1" height="1" fill="#ffffff"/><rect x="6" y="4" width="4" height="1" fill="#000000"/><rect x="10" y="4" width="1" height="1" fill="#ffffff"/><rect x="11" y="4" width="1" height="1" fill="#000000"/><rect x="12" y="4" width="1" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#000000"/><rect x="0" y="5" width="1" height="1" fill="#000000"/><rect x="1" y="5" width="1" height="1" fill="#ffffff"/><rect x="2" y="5" width="3" height="1" fill="#000000"/><rect x="5" y="5" width="6" height="1" fill="#ffffff"/><rect x="11" y="5" width="1" height="1" fill="#000000"/><rect x="12" y="5" width="1" height="1" fill="#ffffff"/><rect x="13" y="5" width="1" height="1" fill="#000000"/><rect x="0" y="6" width="1" height="1" fill="#000000"/><rect x="1" y="6" width="1" height="1" fill="#ffffff"/><rect x="2" y="6" width="3" height="1" fill="#000000"/><rect x="5" y="6" width="1" height="1" fill="#ffffff"/><rect x="6" y="6" width="4" height="1" fill="#000000"/><rect x="10" y="6" width="1" height="1" fill="#ffffff"/><rect x="11" y="6" width="1" height="1" fill="#000000"/><rect x="12" y="6" width="1" height="1" fill="#ffffff"/><rect x="13" y="6" width="1" height="1" fill="#000000"/><rect x="0" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="7" width="10" height="1" fill="#ffffff"/><rect x="11" y="7" width="1" height="1" fill="#000000"/><rect x="12" y="7" width="1" height="1" fill="#ffffff"/><rect x="13" y="7" width="1" height="1" fill="#000000"/><rect x="0" y="8" width="1" height="1" fill="#000000"/><rect x="1" y="8" width="1" height="1" fill="#ffffff"/><rect x="2" y="8" width="8" height="1" fill="#000000"/><rect x="10" y="8" width="1" height="1" fill="#ffffff"/><rect x="11" y="8" width="1" height="1" fill="#000000"/><rect x="12" y="8" width="1" height="1" fill="#ffffff"/><rect x="13" y="8" width="1" height="1" fill="#000000"/><rect x="0" y="9" width="1" height="1" fill="#000000"/><rect x="1" y="9" width="10" height="1" fill="#ffffff"/><rect x="11" y="9" width="1" height="1" fill="#000000"/><rect x="12" y="9" width="1" height="1" fill="#ffffff"/><rect x="13" y="9" width="1" height="1" fill="#000000"/><rect x="0" y="10" width="12" height="1" fill="#000000"/><rect x="12" y="10" width="1" height="1" fill="#ffffff"/><rect x="13" y="10" width="1" height="1" fill="#000000"/><rect x="1" y="11" width="12" height="1" fill="#000000"/></svg><span>clips</span></h2>
       <ul class="clips">
         <li>
           <a href="https://www.washingtonsun.com/campaigns/candidate-capitol-hill-limbo">This Candidate Is Stuck in Capitol Hill Limbo</a>
@@ -341,16 +315,33 @@
           <span class="clip-meta">Washington Sun · October 16, 2026</span>
         </li>
       </ul>
-      <p class="back"><a href="#top">back to top</a></p>
     </section>
 
     <section id="contact">
-      <h2><svg class="icon" viewBox="0 0 14 10" width="42" height="30" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="14" height="1" fill="#000000"/><rect x="0" y="1" width="2" height="1" fill="#000000"/><rect x="2" y="1" width="10" height="1" fill="#ffffff"/><rect x="12" y="1" width="2" height="1" fill="#000000"/><rect x="0" y="2" width="1" height="1" fill="#000000"/><rect x="1" y="2" width="1" height="1" fill="#ffffff"/><rect x="2" y="2" width="1" height="1" fill="#000000"/><rect x="3" y="2" width="8" height="1" fill="#ffffff"/><rect x="11" y="2" width="1" height="1" fill="#000000"/><rect x="12" y="2" width="1" height="1" fill="#ffffff"/><rect x="13" y="2" width="1" height="1" fill="#000000"/><rect x="0" y="3" width="1" height="1" fill="#000000"/><rect x="1" y="3" width="2" height="1" fill="#ffffff"/><rect x="3" y="3" width="1" height="1" fill="#000000"/><rect x="4" y="3" width="6" height="1" fill="#ffffff"/><rect x="10" y="3" width="1" height="1" fill="#000000"/><rect x="11" y="3" width="2" height="1" fill="#ffffff"/><rect x="13" y="3" width="1" height="1" fill="#000000"/><rect x="0" y="4" width="1" height="1" fill="#000000"/><rect x="1" y="4" width="3" height="1" fill="#ffffff"/><rect x="4" y="4" width="1" height="1" fill="#000000"/><rect x="5" y="4" width="4" height="1" fill="#ffffff"/><rect x="9" y="4" width="1" height="1" fill="#000000"/><rect x="10" y="4" width="3" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#000000"/><rect x="0" y="5" width="1" height="1" fill="#000000"/><rect x="1" y="5" width="4" height="1" fill="#ffffff"/><rect x="5" y="5" width="1" height="1" fill="#000000"/><rect x="6" y="5" width="2" height="1" fill="#e0383c"/><rect x="8" y="5" width="1" height="1" fill="#000000"/><rect x="9" y="5" width="4" height="1" fill="#ffffff"/><rect x="13" y="5" width="1" height="1" fill="#000000"/><rect x="0" y="6" width="1" height="1" fill="#000000"/><rect x="1" y="6" width="3" height="1" fill="#ffffff"/><rect x="4" y="6" width="1" height="1" fill="#000000"/><rect x="5" y="6" width="1" height="1" fill="#ffffff"/><rect x="6" y="6" width="2" height="1" fill="#000000"/><rect x="8" y="6" width="1" height="1" fill="#ffffff"/><rect x="9" y="6" width="1" height="1" fill="#000000"/><rect x="10" y="6" width="3" height="1" fill="#ffffff"/><rect x="13" y="6" width="1" height="1" fill="#000000"/><rect x="0" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="7" width="2" height="1" fill="#ffffff"/><rect x="3" y="7" width="1" height="1" fill="#000000"/><rect x="4" y="7" width="6" height="1" fill="#ffffff"/><rect x="10" y="7" width="1" height="1" fill="#000000"/><rect x="11" y="7" width="2" height="1" fill="#ffffff"/><rect x="13" y="7" width="1" height="1" fill="#000000"/><rect x="0" y="8" width="1" height="1" fill="#000000"/><rect x="1" y="8" width="1" height="1" fill="#ffffff"/><rect x="2" y="8" width="1" height="1" fill="#000000"/><rect x="3" y="8" width="8" height="1" fill="#ffffff"/><rect x="11" y="8" width="1" height="1" fill="#000000"/><rect x="12" y="8" width="1" height="1" fill="#ffffff"/><rect x="13" y="8" width="1" height="1" fill="#000000"/><rect x="0" y="9" width="14" height="1" fill="#000000"/></svg><span>contact me</span></h2>
+      <h2><svg class="icon" viewBox="0 0 14 10" width="32" height="23" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="14" height="1" fill="#000000"/><rect x="0" y="1" width="2" height="1" fill="#000000"/><rect x="2" y="1" width="10" height="1" fill="#ffffff"/><rect x="12" y="1" width="2" height="1" fill="#000000"/><rect x="0" y="2" width="1" height="1" fill="#000000"/><rect x="1" y="2" width="1" height="1" fill="#ffffff"/><rect x="2" y="2" width="1" height="1" fill="#000000"/><rect x="3" y="2" width="8" height="1" fill="#ffffff"/><rect x="11" y="2" width="1" height="1" fill="#000000"/><rect x="12" y="2" width="1" height="1" fill="#ffffff"/><rect x="13" y="2" width="1" height="1" fill="#000000"/><rect x="0" y="3" width="1" height="1" fill="#000000"/><rect x="1" y="3" width="2" height="1" fill="#ffffff"/><rect x="3" y="3" width="1" height="1" fill="#000000"/><rect x="4" y="3" width="6" height="1" fill="#ffffff"/><rect x="10" y="3" width="1" height="1" fill="#000000"/><rect x="11" y="3" width="2" height="1" fill="#ffffff"/><rect x="13" y="3" width="1" height="1" fill="#000000"/><rect x="0" y="4" width="1" height="1" fill="#000000"/><rect x="1" y="4" width="3" height="1" fill="#ffffff"/><rect x="4" y="4" width="1" height="1" fill="#000000"/><rect x="5" y="4" width="4" height="1" fill="#ffffff"/><rect x="9" y="4" width="1" height="1" fill="#000000"/><rect x="10" y="4" width="3" height="1" fill="#ffffff"/><rect x="13" y="4" width="1" height="1" fill="#000000"/><rect x="0" y="5" width="1" height="1" fill="#000000"/><rect x="1" y="5" width="4" height="1" fill="#ffffff"/><rect x="5" y="5" width="1" height="1" fill="#000000"/><rect x="6" y="5" width="2" height="1" fill="#e0383c"/><rect x="8" y="5" width="1" height="1" fill="#000000"/><rect x="9" y="5" width="4" height="1" fill="#ffffff"/><rect x="13" y="5" width="1" height="1" fill="#000000"/><rect x="0" y="6" width="1" height="1" fill="#000000"/><rect x="1" y="6" width="3" height="1" fill="#ffffff"/><rect x="4" y="6" width="1" height="1" fill="#000000"/><rect x="5" y="6" width="1" height="1" fill="#ffffff"/><rect x="6" y="6" width="2" height="1" fill="#000000"/><rect x="8" y="6" width="1" height="1" fill="#ffffff"/><rect x="9" y="6" width="1" height="1" fill="#000000"/><rect x="10" y="6" width="3" height="1" fill="#ffffff"/><rect x="13" y="6" width="1" height="1" fill="#000000"/><rect x="0" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="7" width="2" height="1" fill="#ffffff"/><rect x="3" y="7" width="1" height="1" fill="#000000"/><rect x="4" y="7" width="6" height="1" fill="#ffffff"/><rect x="10" y="7" width="1" height="1" fill="#000000"/><rect x="11" y="7" width="2" height="1" fill="#ffffff"/><rect x="13" y="7" width="1" height="1" fill="#000000"/><rect x="0" y="8" width="1" height="1" fill="#000000"/><rect x="1" y="8" width="1" height="1" fill="#ffffff"/><rect x="2" y="8" width="1" height="1" fill="#000000"/><rect x="3" y="8" width="8" height="1" fill="#ffffff"/><rect x="11" y="8" width="1" height="1" fill="#000000"/><rect x="12" y="8" width="1" height="1" fill="#ffffff"/><rect x="13" y="8" width="1" height="1" fill="#000000"/><rect x="0" y="9" width="14" height="1" fill="#000000"/></svg><span>contact me</span></h2>
       <p>You can reach me at <a href="mailto:willhofmann@washsun.com">willhofmann@washsun.com</a>.</p>
       <p>Signal: will_hofmann.01</p>
+      <p class="twitter">
+        <a href="https://x.com/will_hofmann" aria-label="Twitter">
+          <svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-hidden="true">
+            <g stroke="#000000" stroke-width="2" stroke-linejoin="round">
+              <polygon points="16,34 2,24 7,40" fill="#33ccff"/>
+              <ellipse cx="29" cy="38" rx="17" ry="13" fill="#33ccff"/>
+              <polygon points="50,23 61,25 50,29" fill="#ffcc00"/>
+              <circle cx="43" cy="25" r="9" fill="#33ccff"/>
+              <path d="M18 34 Q28 26 37 36 Q28 44 18 34 Z" fill="#99e6ff"/>
+              <line x1="26" y1="50" x2="24" y2="58"/>
+              <line x1="33" y1="50" x2="35" y2="58"/>
+            </g>
+            <circle cx="45" cy="23" r="2.4" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+            <circle cx="45.6" cy="23" r="1.1" fill="#000000"/>
+          </svg>
+          <span class="twitter-word">twitter</span>
+        </a>
+      </p>
     </section>
 
-    <p class="flower" aria-hidden="true">✿</p>
+    <canvas id="globe" class="globe" width="40" height="40" aria-hidden="true"></canvas>
   </main>
 
   <footer>©2026 Will Hofmann</footer>
