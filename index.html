@@ -5,79 +5,185 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Will Hofmann</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
-      padding: 48px 16px;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #ffffff;
+      font-family: "Times New Roman", Times, serif;
+      color: #000000;
+      background: #98bbd5;
+      text-align: center;
     }
+
+    /* Scrolling banner across the top */
+    .ticker {
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 14px 0;
+      font-size: 15px;
+    }
+    .ticker-track {
+      display: inline-block;
+      animation: scroll-left 40s linear infinite;
+    }
+    .ticker-track span {
+      padding-right: 0.4em;
+    }
+    @keyframes scroll-left {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
+    }
+
     main {
-      max-width: 720px;
+      max-width: 640px;
       margin: 0 auto;
+      padding: 32px 16px 24px;
     }
-    header {
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 24px;
-      margin-bottom: 32px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: normal;
-      line-height: 1.2;
+
+    .hello {
+      font-size: 48px;
+      font-weight: bold;
       margin: 0;
+      line-height: 1.1;
     }
-    .beat {
-      font-size: 1.2rem;
-      color: #555;
-      margin: 8px 0 0;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    h2 {
-      font-size: 1.1rem;
+
+    /* Big retro name */
+    h1 {
+      margin: 24px 0 8px;
+      font-family: Impact, "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(44px, 12vw, 84px);
+      font-style: italic;
+      letter-spacing: 0.04em;
+      line-height: 1;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #555;
-      margin: 0 0 12px;
+      color: #2f6b2a;
+      background: repeating-linear-gradient(
+        180deg,
+        #3f8a36 0px,
+        #3f8a36 3px,
+        #1c3d19 3px,
+        #1c3d19 5px
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 2px #000000;
+      filter: drop-shadow(3px 3px 0 #000000);
     }
-    .placeholder {
-      border: 2px dashed #c9a227;
-      background: #fdf8e6;
-      color: #6b5a12;
-      padding: 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.95rem;
+
+    .beat {
+      font-size: 22px;
+      font-style: italic;
+      margin: 20px 0 32px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li {
+      margin: 0 0 20px;
+      font-size: 22px;
     }
     a {
-      color: #1a4f8b;
+      color: #0000ee;
+    }
+    a:visited {
+      color: #551a8b;
+    }
+
+    .flower {
+      font-size: 26px;
+      margin: 8px 0 40px;
+    }
+
+    section {
+      margin: 0 0 48px;
+      scroll-margin-top: 16px;
+    }
+    h2 {
+      font-size: 32px;
+      margin: 0 0 16px;
+    }
+    section p {
+      font-size: 19px;
+      line-height: 1.55;
+      margin: 0 0 12px;
+    }
+    #about p:not(.back) {
+      text-align: left;
+    }
+    .placeholder {
+      border: 2px dashed #000000;
+      background: #c9dcea;
+      padding: 14px;
+      font-style: italic;
+    }
+    .back {
+      font-size: 16px;
+    }
+
+    footer {
+      font-size: 15px;
+      padding: 24px 16px 32px;
     }
   </style>
 </head>
 <body>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
+    </div>
+  </div>
+
   <main>
-    <header>
-      <h1>Will Hofmann</h1>
-      <p class="beat">Reporting fellow covering politics and campaigns</p>
-    </header>
+    <p class="hello">hello!</p>
+    <h1>Will Hofmann</h1>
+    <p class="beat">Reporting fellow covering politics and campaigns</p>
+
+    <nav>
+      <ul>
+        <li><a href="#about">about</a></li>
+        <li><a href="#clips">clips</a></li>
+        <li><a href="#contact">contact me</a></li>
+      </ul>
+    </nav>
+
+    <p class="flower" aria-hidden="true">✿</p>
 
     <section id="about">
-      <h2>About</h2>
+      <h2>about</h2>
       <p>I previously worked at the Asheville Citizen Times, where I covered Western North Carolina’s recovery from Hurricane Helene and regional growth and development. I graduated from Appalachian State University, where I covered politics, infrastructure and enterprise projects as an editor for The Appalachian.</p>
+      <p class="back"><a href="#top">back to top</a></p>
     </section>
 
     <section id="clips">
-      <h2>Clips</h2>
+      <h2>clips</h2>
       <!-- PLACEHOLDER: stories go here -->
       <p class="placeholder">[Clips go here. Coming soon.]</p>
+      <p class="back"><a href="#top">back to top</a></p>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2>contact me</h2>
       <p>You can reach me at <a href="mailto:willhofmann@washsun.com">willhofmann@washsun.com</a>.</p>
     </section>
+
+    <p class="flower" aria-hidden="true">✿</p>
   </main>
+
+  <footer>©2026 Will Hofmann</footer>
 </body>
 </html>
