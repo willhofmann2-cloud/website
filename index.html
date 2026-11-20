@@ -106,6 +106,30 @@
       color: #551a8b;
     }
 
+    .twitter {
+      margin: 0 0 24px;
+    }
+    .twitter a {
+      display: inline-block;
+      text-decoration: none;
+    }
+    .twitter svg {
+      display: block;
+      margin: 0 auto;
+    }
+    .twitter-word {
+      display: block;
+      font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
+      font-weight: bold;
+      font-size: 28px;
+      color: #33ccff;
+      -webkit-text-stroke: 1px #000000;
+      letter-spacing: 0.02em;
+    }
+    .twitter a:hover svg {
+      transform: rotate(-8deg);
+    }
+
     .flower {
       font-size: 26px;
       margin: 8px 0 40px;
@@ -171,6 +195,25 @@
         <li><a href="#contact">contact me</a></li>
       </ul>
     </nav>
+
+    <p class="twitter">
+      <a href="https://x.com/will_hofmann" aria-label="Twitter">
+        <svg viewBox="0 0 64 64" width="72" height="72" role="img" aria-hidden="true">
+          <g stroke="#000000" stroke-width="2" stroke-linejoin="round">
+            <polygon points="16,34 2,24 7,40" fill="#33ccff"/>
+            <ellipse cx="29" cy="38" rx="17" ry="13" fill="#33ccff"/>
+            <polygon points="50,23 61,25 50,29" fill="#ffcc00"/>
+            <circle cx="43" cy="25" r="9" fill="#33ccff"/>
+            <path d="M18 34 Q28 26 37 36 Q28 44 18 34 Z" fill="#99e6ff"/>
+            <line x1="26" y1="50" x2="24" y2="58"/>
+            <line x1="33" y1="50" x2="35" y2="58"/>
+          </g>
+          <circle cx="45" cy="23" r="2.4" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+          <circle cx="45.6" cy="23" r="1.1" fill="#000000"/>
+        </svg>
+        <span class="twitter-word">twitter</span>
+      </a>
+    </p>
 
     <p class="flower" aria-hidden="true">✿</p>
 
