@@ -88,6 +88,52 @@
       margin: 0;
       font-size: 19px;
     }
+
+    /* "Where you can find my work" drop-down */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown summary {
+      cursor: pointer;
+      color: #0000ee;
+      text-decoration: underline;
+    }
+    .dropdown summary::marker,
+    .dropdown summary::-webkit-details-marker {
+      color: #000000;
+    }
+    nav .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: block;
+      width: max-content;
+      max-width: calc(100vw - 32px);
+      margin: 0;
+      padding: 8px 16px;
+      background: #ffffff;
+      border: 3px solid #000000;
+      box-shadow: 5px 5px 0 #000000;
+      text-align: left;
+    }
+    nav .dropdown-menu li {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+    /* On phones, center the drop-down on the screen instead */
+    @media (max-width: 600px) {
+      nav {
+        position: relative;
+      }
+      .dropdown {
+        position: static;
+      }
+      nav .dropdown-menu {
+        top: calc(100% - 4px);
+      }
+    }
     a {
       color: #0000ee;
     }
@@ -207,8 +253,15 @@
     <ul>
       <li><a href="#about">about</a></li>
       <li><a href="#clips">clips</a></li>
-      <li><a href="https://www.washingtonsun.com/will-hofmann">Washington Sun author profile</a></li>
-      <li><a href="https://www.citizen-times.com/staff/8338196001/will-hofmann/">Asheville Citizen Times author profile</a></li>
+      <li class="dropdown">
+        <details>
+          <summary>Where you can find my work</summary>
+          <ul class="dropdown-menu">
+            <li><a href="https://www.washingtonsun.com/will-hofmann">Washington Sun author profile</a></li>
+            <li><a href="https://www.citizen-times.com/staff/8338196001/will-hofmann/">Asheville Citizen Times author profile</a></li>
+          </ul>
+        </details>
+      </li>
       <li><a href="#contact">contact me</a></li>
     </ul>
   </nav>
