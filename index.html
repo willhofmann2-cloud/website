@@ -106,6 +106,15 @@
       color: #551a8b;
     }
 
+    .globe {
+      display: block;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 32px;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
     .twitter {
       margin: 0 0 24px;
     }
@@ -186,6 +195,8 @@
     <h1>Will Hofmann</h1>
     <p class="beat">Reporting fellow covering politics and campaigns</p>
 
+    <canvas id="globe" class="globe" width="40" height="40" aria-hidden="true"></canvas>
+
     <nav>
       <ul>
         <li><a href="#about">about</a></li>
@@ -240,5 +251,143 @@
   </main>
 
   <footer>©2026 Will Hofmann</footer>
+
+  <script>
+    /* ---------- Spinning pixel globe ---------- */
+    (function () {
+      var canvas = document.getElementById('globe');
+      if (!canvas || !canvas.getContext) return;
+      var ctx = canvas.getContext('2d');
+      var W = canvas.width, H = canvas.height;
+      var R = 18, cx = W / 2, cy = H / 2;
+
+      // Rough world map: 48 columns (7.5° each, from 180°W) x 24 rows
+      // (7.5° each, from 90°N). Each row lists [startCol, endCol] land runs.
+      var LAND = [
+        [],
+        [[5,13],[16,20],[37,42]],
+        [[2,14],[15,19],[26,28],[29,47]],
+        [[2,15],[16,18],[25,28],[27,47]],
+        [[5,11],[13,16],[23,23],[24,30],[30,45]],
+        [[7,16],[23,30],[30,42]],
+        [[7,14],[22,23],[24,25],[27,28],[28,42],[42,42]],
+        [[8,13],[22,28],[28,31],[32,40]],
+        [[9,11],[12,12],[21,28],[29,31],[33,35],[35,40]],
+        [[10,11],[21,29],[29,30],[33,34],[36,38]],
+        [[11,12],[14,16],[22,29],[37,38]],
+        [[13,17],[23,30],[37,40]],
+        [[13,19],[25,29],[38,43]],
+        [[13,19],[25,29],[41,43]],
+        [[14,18],[25,28],[30,30],[39,44]],
+        [[15,17],[26,28],[39,44]],
+        [[15,16],[26,27],[40,44]],
+        [[15,16],[46,46]],
+        [[15,15]],
+        [],
+        [],
+        [[0,47]],
+        [[0,47]],
+        [[0,47]]
+      ];
+      var map = [];
+      for (var r = 0; r < 24; r++) {
+        map[r] = [];
+        for (var c = 0; c < 48; c++) map[r][c] = false;
+        LAND[r].forEach(function (run) {
+          for (var c2 = run[0]; c2 <= run[1]; c2++) map[r][c2] = true;
+        });
+      }
+
+      // Small retro palette: [lit, mid, shadow]
+      var SEA  = ['#3a6fd8', '#2a52b0', '#1b3678'];
+      var LANDC = ['#5fbf3f', '#3f9a2b', '#28661c'];
+
+      function draw(rotation) {
+        ctx.clearRect(0, 0, W, H);
+        for (var py = 0; py < H; py++) {
+          for (var px = 0; px < W; px++) {
+            var x = (px + 0.5 - cx) / R;
+            var y = (py + 0.5 - cy) / R;
+            var d = x * x + y * y;
+            if (d > 1) {
+              // one-pixel black outline
+              if (d <= Math.pow((R + 1) / R, 2)) {
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(px, py, 1, 1);
+              }
+              continue;
+            }
+            var z = Math.sqrt(1 - d);
+            var lat = Math.asin(-y);
+            var lon = Math.atan2(x, z) + rotation;
+            lon = ((lon + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+            var row = Math.min(23, Math.floor((Math.PI / 2 - lat) / Math.PI * 24));
+            var col = Math.min(47, Math.floor((lon + Math.PI) / (2 * Math.PI) * 48));
+            // light from upper left, stepped into 3 bands
+            var light = -0.5 * x - 0.5 * y + 0.7 * z;
+            var shade = light > 0.55 ? 0 : (light > 0.15 ? 1 : 2);
+            ctx.fillStyle = (map[row][col] ? LANDC : SEA)[shade];
+            ctx.fillRect(px, py, 1, 1);
+          }
+        }
+      }
+
+      var still = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var rotation = 0;
+      draw(rotation);
+      if (!still) {
+        // choppy, low frame rate on purpose for the retro feel
+        setInterval(function () {
+          rotation -= 0.12;
+          draw(rotation);
+        }, 90);
+      }
+    })();
+
+    /* ---------- Tweet sound on the Twitter bird ---------- */
+    (function () {
+      var link = document.querySelector('.twitter a');
+      var AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!link || !AudioCtx) return;
+      var audio = null;
+
+      function getAudio() {
+        if (!audio) audio = new AudioCtx();
+        if (audio.state === 'suspended') audio.resume();
+        return audio;
+      }
+
+      // One short chirp: a quick upward-then-down whistle
+      function chirp(ac, start, from, peak) {
+        var osc = ac.createOscillator();
+        var gain = ac.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(from, start);
+        osc.frequency.exponentialRampToValueAtTime(peak, start + 0.05);
+        osc.frequency.exponentialRampToValueAtTime(from * 0.9, start + 0.1);
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(0.15, start + 0.015);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.1);
+        osc.connect(gain).connect(ac.destination);
+        osc.start(start);
+        osc.stop(start + 0.12);
+      }
+
+      function tweet() {
+        var ac = getAudio();
+        var t = ac.currentTime + 0.01;
+        chirp(ac, t, 2600, 4200);
+        chirp(ac, t + 0.13, 2800, 4600);
+      }
+
+      // Browsers only allow sound after the visitor has clicked or tapped
+      // the page once, so unlock audio on the first click anywhere.
+      document.addEventListener('pointerdown', getAudio, { once: true });
+      document.addEventListener('keydown', getAudio, { once: true });
+      link.addEventListener('mouseenter', tweet);
+      link.addEventListener('focus', tweet);
+    })();
+  </script>
 </body>
 </html>
