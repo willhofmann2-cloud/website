@@ -29,11 +29,51 @@
       line-height: 1.1;
     }
 
+    /* Headshot circle beside the name */
+    .name-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin: 24px 0 8px;
+    }
+    .headshot {
+      flex: none;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #000000;
+      box-shadow: 4px 4px 0 #000000;
+    }
+    @media (max-width: 480px) {
+      .name-row {
+        gap: 14px;
+      }
+      .headshot {
+        width: 96px;
+        height: 96px;
+      }
+    }
+    @media (max-width: 360px) {
+      .name-row {
+        gap: 10px;
+      }
+      .headshot {
+        width: 76px;
+        height: 76px;
+      }
+      .name-row h1 {
+        font-size: 28px;
+      }
+    }
+
     /* Big retro name */
     h1 {
-      margin: 24px 0 8px;
+      margin: 0;
+      text-align: left;
       font-family: Impact, "Arial Black", "Helvetica Neue", Arial, sans-serif;
-      font-size: clamp(44px, 12vw, 84px);
+      font-size: clamp(34px, 9vw, 70px);
       font-style: italic;
       letter-spacing: 0.04em;
       line-height: 1;
@@ -269,7 +309,11 @@
          alt="Hand-drawn sign on a tiled wall reading “WILL H.” and “PRESS,” with a doodled face in the middle">
 
     <p class="hello">hello!</p>
-    <h1>Will Hofmann</h1>
+    <div class="name-row">
+      <img class="headshot" src="images/will-headshot.jpg" width="420" height="420"
+           alt="Headshot of Will Hofmann in a navy blazer and patterned tie">
+      <h1>Will Hofmann</h1>
+    </div>
     <p class="beat">Reporting fellow covering politics and campaigns</p>
 
     <section id="about">
