@@ -16,32 +16,10 @@
       text-align: center;
     }
 
-    /* Scrolling banner across the top */
-    .ticker {
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 14px 0;
-      font-size: 15px;
-    }
-    .ticker-track {
-      display: inline-block;
-      animation: scroll-left 40s linear infinite;
-    }
-    .ticker-track span {
-      padding-right: 0.4em;
-    }
-    @keyframes scroll-left {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .ticker-track { animation: none; }
-    }
-
     main {
       max-width: 640px;
       margin: 0 auto;
-      padding: 32px 16px 24px;
+      padding: 28px 16px 24px;
     }
 
     .hello {
@@ -90,14 +68,25 @@
       margin: 20px 0 32px;
     }
 
+    /* Row of section links across the top */
+    nav {
+      border-bottom: 3px solid #000000;
+      background: #b5cfe2;
+      padding: 12px 16px;
+    }
     nav ul {
       list-style: none;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
+      max-width: 960px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 28px;
     }
     nav li {
-      margin: 0 0 20px;
-      font-size: 22px;
+      margin: 0;
+      font-size: 19px;
     }
     a {
       color: #0000ee;
@@ -214,38 +203,25 @@
   </style>
 </head>
 <body>
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-      <span>Will Hofmann ✿ Reporting fellow covering politics and campaigns ✿</span>
-    </div>
-  </div>
+  <nav>
+    <ul>
+      <li><a href="#about">about</a></li>
+      <li><a href="#clips">clips</a></li>
+      <li><a href="https://www.washingtonsun.com/will-hofmann">Washington Sun author profile</a></li>
+      <li><a href="https://www.citizen-times.com/staff/8338196001/will-hofmann/">Asheville Citizen Times author profile</a></li>
+      <li><a href="#contact">contact me</a></li>
+    </ul>
+  </nav>
 
   <main>
-    <img class="photo banner" src="images/will-h-press-sign.jpg" width="1500" height="500"
-         alt="Hand-drawn sign on a tiled wall reading “WILL H.” and “PRESS,” with a doodled face in the middle">
+    <img class="photo banner" src="images/will-in-the-rain.jpg" width="1600" height="1038"
+         alt="Will Hofmann in a red rain jacket and press badge, holding a notebook and checking a phone in the rain">
 
     <p class="hello">hello!</p>
     <h1>Will Hofmann</h1>
     <p class="beat">Reporting fellow covering politics and campaigns</p>
 
     <canvas id="globe" class="globe" width="40" height="40" aria-hidden="true"></canvas>
-
-    <nav>
-      <ul>
-        <li><a href="#about">about</a></li>
-        <li><a href="#clips">clips</a></li>
-        <li><a href="https://www.washingtonsun.com/will-hofmann">Washington Sun author profile</a></li>
-        <li><a href="https://www.citizen-times.com/staff/8338196001/will-hofmann/">Asheville Citizen Times author profile</a></li>
-        <li><a href="#contact">contact me</a></li>
-      </ul>
-    </nav>
 
     <p class="twitter">
       <a href="https://x.com/will_hofmann" aria-label="Twitter">
@@ -270,8 +246,8 @@
 
     <section id="about">
       <h2><svg class="icon" viewBox="0 0 12 12" width="36" height="36" shape-rendering="crispEdges" aria-hidden="true"><rect x="4" y="0" width="4" height="1" fill="#000000"/><rect x="2" y="1" width="2" height="1" fill="#000000"/><rect x="4" y="1" width="4" height="1" fill="#ffd84a"/><rect x="8" y="1" width="2" height="1" fill="#000000"/><rect x="1" y="2" width="1" height="1" fill="#000000"/><rect x="2" y="2" width="8" height="1" fill="#ffd84a"/><rect x="10" y="2" width="1" height="1" fill="#000000"/><rect x="1" y="3" width="1" height="1" fill="#000000"/><rect x="2" y="3" width="2" height="1" fill="#ffd84a"/><rect x="4" y="3" width="1" height="1" fill="#000000"/><rect x="5" y="3" width="2" height="1" fill="#ffd84a"/><rect x="7" y="3" width="1" height="1" fill="#000000"/><rect x="8" y="3" width="2" height="1" fill="#ffd84a"/><rect x="10" y="3" width="1" height="1" fill="#000000"/><rect x="0" y="4" width="1" height="1" fill="#000000"/><rect x="1" y="4" width="3" height="1" fill="#ffd84a"/><rect x="4" y="4" width="1" height="1" fill="#000000"/><rect x="5" y="4" width="2" height="1" fill="#ffd84a"/><rect x="7" y="4" width="1" height="1" fill="#000000"/><rect x="8" y="4" width="3" height="1" fill="#ffd84a"/><rect x="11" y="4" width="1" height="1" fill="#000000"/><rect x="0" y="5" width="1" height="1" fill="#000000"/><rect x="1" y="5" width="10" height="1" fill="#ffd84a"/><rect x="11" y="5" width="1" height="1" fill="#000000"/><rect x="0" y="6" width="1" height="1" fill="#000000"/><rect x="1" y="6" width="10" height="1" fill="#ffd84a"/><rect x="11" y="6" width="1" height="1" fill="#000000"/><rect x="0" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="7" width="2" height="1" fill="#ffd84a"/><rect x="3" y="7" width="1" height="1" fill="#000000"/><rect x="4" y="7" width="4" height="1" fill="#ffd84a"/><rect x="8" y="7" width="1" height="1" fill="#000000"/><rect x="9" y="7" width="2" height="1" fill="#ffd84a"/><rect x="11" y="7" width="1" height="1" fill="#000000"/><rect x="1" y="8" width="1" height="1" fill="#000000"/><rect x="2" y="8" width="2" height="1" fill="#ffd84a"/><rect x="4" y="8" width="4" height="1" fill="#000000"/><rect x="8" y="8" width="2" height="1" fill="#ffd84a"/><rect x="10" y="8" width="1" height="1" fill="#000000"/><rect x="1" y="9" width="1" height="1" fill="#000000"/><rect x="2" y="9" width="8" height="1" fill="#ffd84a"/><rect x="10" y="9" width="1" height="1" fill="#000000"/><rect x="2" y="10" width="2" height="1" fill="#000000"/><rect x="4" y="10" width="4" height="1" fill="#ffd84a"/><rect x="8" y="10" width="2" height="1" fill="#000000"/><rect x="4" y="11" width="4" height="1" fill="#000000"/></svg><span>about</span></h2>
-      <img class="photo" src="images/will-in-the-rain.jpg" width="1600" height="1038" loading="lazy"
-           alt="Will Hofmann in a red rain jacket and press badge, holding a notebook and checking a phone in the rain">
+      <img class="photo" src="images/will-h-press-sign.jpg" width="1500" height="500" loading="lazy"
+           alt="Hand-drawn sign on a tiled wall reading “WILL H.” and “PRESS,” with a doodled face in the middle">
       <p>I previously worked at the Asheville Citizen Times, where I covered Western North Carolina’s recovery from Hurricane Helene and regional growth and development. I graduated from Appalachian State University, where I covered politics, infrastructure and enterprise projects as an editor for The Appalachian.</p>
       <p class="back"><a href="#top">back to top</a></p>
     </section>
