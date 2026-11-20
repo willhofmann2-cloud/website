@@ -19,61 +19,21 @@
     main {
       max-width: 640px;
       margin: 0 auto;
-      padding: 28px 16px 24px;
+      padding: 20px 16px 16px;
     }
 
     .hello {
-      font-size: 40px;
+      font-size: 34px;
       font-weight: bold;
       margin: 0;
       line-height: 1.1;
     }
 
-    /* Headshot circle beside the name */
-    .name-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      margin: 24px 0 8px;
-    }
-    .headshot {
-      flex: none;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #000000;
-      box-shadow: 4px 4px 0 #000000;
-    }
-    @media (max-width: 480px) {
-      .name-row {
-        gap: 14px;
-      }
-      .headshot {
-        width: 96px;
-        height: 96px;
-      }
-    }
-    @media (max-width: 360px) {
-      .name-row {
-        gap: 10px;
-      }
-      .headshot {
-        width: 76px;
-        height: 76px;
-      }
-      .name-row h1 {
-        font-size: 28px;
-      }
-    }
-
     /* Big retro name */
     h1 {
-      margin: 0;
-      text-align: left;
+      margin: 10px 0 0;
       font-family: Impact, "Arial Black", "Helvetica Neue", Arial, sans-serif;
-      font-size: clamp(34px, 9vw, 70px);
+      font-size: clamp(40px, 11vw, 72px);
       font-style: italic;
       letter-spacing: 0.04em;
       line-height: 1;
@@ -103,9 +63,9 @@
     }
 
     .beat {
-      font-size: 21px;
+      font-size: 19px;
       font-style: italic;
-      margin: 16px 0 48px;
+      margin: 10px 0 32px;
     }
 
     /* Row of section links across the top */
@@ -115,7 +75,7 @@
       z-index: 20;
       border-bottom: 3px solid #000000;
       background: #b5cfe2;
-      padding: 12px 16px;
+      padding: 9px 16px;
     }
     nav ul {
       list-style: none;
@@ -125,11 +85,11 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px 28px;
+      gap: 6px 24px;
     }
     nav li {
       margin: 0;
-      font-size: 19px;
+      font-size: 18px;
     }
 
     /* "Where you can find my work" drop-down */
@@ -197,7 +157,7 @@
     }
 
     .twitter {
-      margin: 16px 0 0;
+      margin: 10px 0 0;
     }
     .twitter a {
       display: inline-flex;
@@ -221,24 +181,27 @@
     }
 
     section {
-      margin: 0 0 56px;
-      scroll-margin-top: 72px;
+      margin: 0 0 36px;
+      scroll-margin-top: 60px;
+    }
+    #contact {
+      margin-bottom: 16px;
     }
     h2 {
-      font-size: 28px;
-      margin: 0 0 20px;
+      font-size: 24px;
+      margin: 0 0 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
     }
     h2 .icon {
       flex: none;
     }
     section p {
-      font-size: 19px;
-      line-height: 1.55;
-      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0 0 8px;
     }
     #about p {
       text-align: left;
@@ -254,13 +217,13 @@
       display: block;
       width: 100%;
       height: auto;
-      margin: 0 0 24px;
+      margin: 0 0 16px;
       border: 3px solid #000000;
       box-shadow: 6px 6px 0 #000000;
       box-sizing: border-box;
     }
     .photo.banner {
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
 
     .clips {
@@ -269,20 +232,20 @@
       padding: 0;
     }
     .clips li {
-      margin: 0 0 18px;
-      font-size: 18px;
-      line-height: 1.4;
+      margin: 0 0 12px;
+      font-size: 17px;
+      line-height: 1.35;
     }
     .clip-meta {
       display: block;
-      font-size: 15px;
+      font-size: 14px;
       font-style: italic;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     footer {
       font-size: 14px;
-      padding: 8px 16px 32px;
+      padding: 6px 16px 20px;
     }
   </style>
 </head>
@@ -309,11 +272,7 @@
          alt="Hand-drawn sign on a tiled wall reading “WILL H.” and “PRESS,” with a doodled face in the middle">
 
     <p class="hello">hello!</p>
-    <div class="name-row">
-      <img class="headshot" src="images/will-headshot.jpg" width="420" height="420"
-           alt="Headshot of Will Hofmann in a navy blazer and patterned tie">
-      <h1>Will Hofmann</h1>
-    </div>
+    <h1>Will Hofmann</h1>
     <p class="beat">Reporting fellow covering politics and campaigns</p>
 
     <section id="about">
