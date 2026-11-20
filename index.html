@@ -9,6 +9,7 @@
       margin: 0;
       padding: 48px 16px;
       font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
       color: #1a1a1a;
       background: #ffffff;
     }
@@ -16,16 +17,68 @@
       max-width: 720px;
       margin: 0 auto;
     }
+    header {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
     h1 {
       font-size: 2.5rem;
       font-weight: normal;
+      line-height: 1.2;
       margin: 0;
+    }
+    .beat {
+      font-size: 1.2rem;
+      color: #555;
+      margin: 8px 0 0;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #555;
+      margin: 0 0 12px;
+    }
+    .placeholder {
+      border: 2px dashed #c9a227;
+      background: #fdf8e6;
+      color: #6b5a12;
+      padding: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+    }
+    a {
+      color: #1a4f8b;
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Will Hofmann</h1>
+    <header>
+      <h1>Will Hofmann</h1>
+      <p class="beat">Reporting fellow covering politics and campaigns</p>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <!-- PLACEHOLDER: About text goes here -->
+      <p class="placeholder">[About text goes here. Coming soon.]</p>
+    </section>
+
+    <section id="clips">
+      <h2>Clips</h2>
+      <!-- PLACEHOLDER: stories go here -->
+      <p class="placeholder">[Clips go here. Coming soon.]</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>You can reach me at <a href="mailto:willhofmann@washsun.com">willhofmann@washsun.com</a>.</p>
+    </section>
   </main>
 </body>
 </html>
