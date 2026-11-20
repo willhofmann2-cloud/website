@@ -60,19 +60,28 @@
       letter-spacing: 0.04em;
       line-height: 1;
       text-transform: uppercase;
-      color: #2f6b2a;
+      color: #6b7f5e;
       background: repeating-linear-gradient(
         180deg,
-        #3f8a36 0px,
-        #3f8a36 3px,
-        #1c3d19 3px,
-        #1c3d19 5px
+        #7a9068 0px,
+        #7a9068 3px,
+        #3e4a36 3px,
+        #3e4a36 5px
       );
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 2px #000000;
-      filter: drop-shadow(3px 3px 0 #000000);
+      filter: drop-shadow(3px 3px 0 #000000) saturate(1);
+      animation: name-flash 1.6s steps(1, end) infinite;
+    }
+    /* Name flashes between dull green and grey */
+    @keyframes name-flash {
+      0%   { filter: drop-shadow(3px 3px 0 #000000) saturate(1); }
+      50%  { filter: drop-shadow(3px 3px 0 #000000) saturate(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      h1 { animation: none; }
     }
 
     .beat {
